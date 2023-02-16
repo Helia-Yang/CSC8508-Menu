@@ -14,6 +14,13 @@ set(Header_Files
 )
 source_group("Header Files" FILES ${Header_Files})
 
+set(Menu_Files
+    "IntroScreen.cpp"
+    "GameScreen.cpp"
+    "GameIntroduction.cpp"
+    "GameEnd.cpp"
+)
+
 set(Source_Files
     "GameTechRenderer.cpp"
     "Main.cpp"
