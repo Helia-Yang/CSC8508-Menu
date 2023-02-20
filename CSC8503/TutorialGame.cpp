@@ -1,3 +1,4 @@
+#pragma once
 #include "TutorialGame.h"
 #include "GameWorld.h"
 #include "PhysicsObject.h"
@@ -6,22 +7,18 @@
 #include "NetworkObject.h"
 #include "PositionConstraint.h"
 #include "OrientationConstraint.h"
-#include "StateGameObject.h"
-#include "BTreeObject.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
 #include "Assets.h"
-#include "IntroScreen.h"
 
 
 using namespace NCL;
 using namespace CSC8503;
+
 vector <Vector3 > nodes;
 vector <Vector3 > nodes2;
-
-bool onFloor;
 
 TutorialGame::TutorialGame()	{
 	world		= new GameWorld();
@@ -37,7 +34,6 @@ TutorialGame::TutorialGame()	{
 	useGravity		= false;
 	inSelectionMode = false;
 	InitialiseAssets();
-
 }
 
 /*
@@ -217,6 +213,7 @@ void TutorialGame::UpdateKeys() {
 	}
 }
 void TutorialGame::movePlayer(GameObject* player) {
+	bool onFloor = false;
 	
 	RayCollision floorCollision;
 	Ray r = Ray(player->GetTransform().GetPosition() + Vector3(0, -1, 0), Vector3(0, -1, 0));
